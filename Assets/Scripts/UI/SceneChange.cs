@@ -21,7 +21,13 @@ public class SceneChange : MonoBehaviour
     {
         SoundManager.instance.PlayAudio("뾰로롱", "SE");
         SoundManager.instance.StopAudio("BGM");
+        // AR씬으로 넘어감
         SceneManager.LoadScene("ARScene");
     }
 
+    public void ChangeIntroScene()
+    {
+        // Intro씬으로 넘어감
+        SceneManager.LoadScene("IntroScene");
+    }
 }

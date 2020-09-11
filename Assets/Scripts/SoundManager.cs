@@ -76,14 +76,12 @@ public class SoundManager : MonoBehaviour
             // 2. 파라메타 이름과 같은것이 있으면
             if (_name == seInfo[i].name)
             {
-                // 효과음 플레이어의 갯수만큼 반복실행
-                for (int j = 0; j < sePlayer.Count; j++)
-                {
+                
                     // 4. 재생한다
-                    sePlayer[j].clip = seInfo[j].clip;
-                    sePlayer[j].volume = seInfo[j].volume;
-                    sePlayer[j].PlayOneShot(sePlayer[j].clip);
-                }
+                    sePlayer[i].clip = seInfo[i].clip;
+                    sePlayer[i].volume = seInfo[i].volume;
+                    sePlayer[i].PlayOneShot(sePlayer[i].clip);
+                
                
             }
         }
