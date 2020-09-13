@@ -35,3 +35,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: Bear
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5065261556363803770
+      m_GuidHigh: 14588788602753251488
+    m_SerializedTextureGuid:
+      m_GuidLow: 17092448740707949934
+      m_GuidHigh: 12345773705252154586
+    m_Size: {x: 1, y: 0.675}
+    m_SpecifySize: 1
+    m_Name: Car
+    m_Texture: {fileID: 0}
