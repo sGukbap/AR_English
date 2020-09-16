@@ -1,32 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region Serialize Field
+    [SerializeField] 
+    private GameObject menu = null;
+    #endregion
+
+    #region Static Field
     static public GameManager instance;
-   
+    #endregion
+
+    bool isMenu = false;
 
     private void Awake()
     {
+        Debug.Log("GameManager : Awake Callback Calls");
         // 1. 싱글턴 선언
-        if (instance == null) { instance = this; DontDestroyOnLoad(this.gameObject); }
+        if (instance == null) { instance = this; }
         else { Destroy(this.gameObject); }
-
     }
     void Start()
     {
-        // 1. 배경음악이 재생된다
-        SoundManager.instance.PlayAudio("브금1", "BGM");
+        
     }
     void Update()
     {
-        // 만약 esc버튼을 누르면
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // 만약 esc버튼을 눌렀는데
+        if (Input.GetKeyDown(KeyCode.Escape) && menu != null)
         {
-            // Intro씬으로 넘어감
-            SceneManager.LoadScene("IntroScene");
+            menu.SetActive(isMenu = !isMenu);
         }
     }
 
@@ -53,5 +60,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("IntroScene");
     }
 
-    
+    public void QuitMenu()
+    {
+        menu.SetActive(isMenu = false);
+    }
+
+    public void OnClickExitButton()
+    {
+        Application.Quit();
+    }
 }

@@ -9,8 +9,15 @@ public class ButtonManager : MonoBehaviour
 {
     public GameObject[] obj; // 누르면 뜨게될 오브젝트 변수 배열
 
-    public string[] audioName; 
+    static public ButtonManager instance; // 싱글턴
+    public string[] audioName;
 
+    private void Awake()
+    {
+        // 1. 싱글턴 선언
+        if (instance == null) { instance = this; }
+        else { Destroy(this.gameObject); }
+    }
     public void ActiveObj()
     {
         // 오브젝트 배열의 길이만큼 검사한다
